@@ -5,6 +5,97 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>4043BD44-A171-4C39-B0F8-91907832F24E</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>04435FE1-F2F8-4FC4-A146-3945EBB3EF09</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-NHL_API-2023.08.28_16-21-43--0400.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>NHL_API project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>NHL_API</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run NHL_API</string>
+			<key>timeStartedRecording</key>
+			<real>714946903.63457596</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run NHL_API</string>
+			<key>uniqueIdentifier</key>
+			<string>4043BD44-A171-4C39-B0F8-91907832F24E</string>
+		</dict>
+		<key>98A45A2E-294D-465E-B266-69E0BDF833B8</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>2862BB06-D387-4E77-A35B-6384AA8147C1</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-NHL_API-2023.08.28_12-42-03--0400.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>NHL_API project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>NHL_API</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run NHL_API</string>
+			<key>timeStartedRecording</key>
+			<real>714933723.86376703</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run NHL_API</string>
+			<key>uniqueIdentifier</key>
+			<string>98A45A2E-294D-465E-B266-69E0BDF833B8</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

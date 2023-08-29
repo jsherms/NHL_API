@@ -1,0 +1,54 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildOnly"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "67c7d4a717b180728549a132d601a8c4d90b5091198eabe76a2de8ba43e71b3c"
+    }
+  ],
+  "containerPath" : "/Users/josh/Desktop/NHL_API/NHL_API.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx13.3",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "x86_64h",
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/josh/Desktop/NHL_API/DerivedData/NHL_API/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/josh/Desktop/NHL_API/DerivedData/NHL_API/Build/Products",
+      "derivedDataPath" : "/Users/josh/Desktop/NHL_API/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/josh/Desktop/NHL_API/DerivedData/NHL_API/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/josh/Desktop/NHL_API/DerivedData/NHL_API/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/josh/Desktop/NHL_API/DerivedData/NHL_API/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
