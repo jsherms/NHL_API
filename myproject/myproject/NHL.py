@@ -33,6 +33,7 @@ for team_id, color in zip(team_ids, colors):
             # Append the data to the DataFrame
             results.loc[len(results)] = [toi, num, team_id, player_name]
 
+
 # Plot the data
 for team_id, color in zip(team_ids, colors):
     team_data = results[results['team'] == team_id]
