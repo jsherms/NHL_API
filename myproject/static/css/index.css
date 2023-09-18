@@ -1,0 +1,51 @@
+/* Style the container for the dropdowns */
+.dropdown-container {
+    display: flex;
+    gap: 10px; /* Adjust the gap between dropdowns as needed */
+}
+
+/* Style each dropdown wrapper */
+.dropdown-wrapper {
+    flex: 10; /* Distribute available space equally among the dropdowns */
+}
+
+/* Style the label */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+/* Style the select element */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+/* Style the selected option */
+select option[selected] {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Style the button */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Change button color on hover */
+button:hover {
+    background-color: #0056b3;
+}

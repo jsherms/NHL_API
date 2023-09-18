@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>NHL Schedule</title>
+    <title>NHL Data Retrieveal</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/schedule.css') }}">
 </head>
 <body>
+    <h1>NHL Data Retrieveal</h1>
+
+    <form action="/submit" method="POST">
+        <div class="dropdown-container">
+            <div class="dropdown-wrapper">
+                <label for="teams">Teams:</label>
+                <select type="text" id="teams" name="teams">
+                    {% for team in teams %}
+                    <option value="{{ team }}" {% if team == default_team %}selected{% endif %}>{{ team }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+    
+            <div class="dropdown-wrapper">
+                <label for="type">Type:</label>
+                <select id="type" name="type">
+                    {% for type in types %}
+                    <option value="{{ type }}" {% if type == default_type %}selected{% endif %}>{{ type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+    
+            <div class="dropdown-wrapper">
+                <label for="filter">Filter:</label>
+                <select id="filter" name="filter">
+                    {% for filter in filters %}
+                    <option value="{{ filter }}" {% if filter == default_filter %}selected{% endif %}>{{ filter }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    
     <table>
         <thead>
             <tr>
+                <th>Game Number</th>
                 <th>Date</th>
                 <th>Home Team</th>
                 <th>Away Team</th>
@@ -15,7 +51,10 @@
         <tbody>
             {% for game in schedule %}
             <tr>
-                <td>{{ game }}</td>
+                <td>{{ game['Game Number'] }}</td>
+                <td>{{ game['Game Date'] }}</td>
+                <td>{{ game['Home Team'] }}</td>
+                <td>{{ game['Away Team'] }}</td>
             </tr>
             {% endfor %}
         </tbody>

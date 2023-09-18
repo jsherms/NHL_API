@@ -37,9 +37,24 @@
             </div>
             <button type="submit">Submit</button>
         </div>
-    
-        
     </form>
-
+    <table>
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+                <th>Jersey Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in roster %}
+            <tr>
+                <td>{{ player['Name'] }}</td>
+                <td>{{ player['Position'] }}</td>
+                <td>{{ player['Jersey Number'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
