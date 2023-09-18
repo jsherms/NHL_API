@@ -40,40 +40,6 @@
 			<key>uniqueIdentifier</key>
 			<string>04435FE1-F2F8-4FC4-A146-3945EBB3EF09</string>
 		</dict>
-		<key>AAF4C165-AC08-4382-A3A0-CE835AA51CD1</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>AAF4C165-AC08-4382-A3A0-CE835AA51CD1.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>NHL_API project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>NHL_API</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Build NHL_API</string>
-			<key>timeStartedRecording</key>
-			<real>714933770.36742902</real>
-			<key>timeStoppedRecording</key>
-			<real>714933770.51575696</real>
-			<key>title</key>
-			<string>Build NHL_API</string>
-			<key>uniqueIdentifier</key>
-			<string>AAF4C165-AC08-4382-A3A0-CE835AA51CD1</string>
-		</dict>
 	</dict>
 </dict>
 </plist>
