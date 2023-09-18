@@ -6,11 +6,11 @@
 <body>
     <h1>NHL Data Retrieveal</h1>
 
-    <form>
+    <form action="/submit" method="POST">
         <label for="teams">Teams:</label>
-        <select id="teams" name="teams">
+        <select type = "text" id="teams" name="teams">
             {% for team in teams %}
-                <option value="{{ team }}">{{ team }}</option>
+                <option value="{{ team }}" {% if team == default_team %}selected{% endif %}>{{ team }}</option>
             {% endfor %}
         </select>
 
@@ -30,5 +30,6 @@
 
         <button type="submit">Submit</button>
     </form>
+
 </body>
 </html>

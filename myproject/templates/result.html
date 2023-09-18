@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NHL Schedule</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Home Team</th>
+                <th>Away Team</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for game in schedule %}
+            <tr>
+                <td>{{ game }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
