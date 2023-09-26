@@ -1,7 +1,7 @@
 import sqlite3
 import requests
 
-conn = sqlite3.connect('myproject/myproject/hockey_data.sqlite3')
+conn = sqlite3.connect('myproject/hockey_data.sqlite3')
 cursor = conn.cursor()
 
 cursor.execute("DROP TABLE IF EXISTS skater_stats")

@@ -5,8 +5,10 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
-    <h1>NHL Data Retrieveal</h1>
-
+    <div class="header-container">
+        <h1>NHL Schedule Retrieveal</h1>
+        <a href="/stats" class="stats"><h1>NHL Statistics Retrieveal</h1></a>
+    </div>
     <form action="/submit" method="POST">
         <div class="dropdown-container">
             <div class="dropdown-wrapper">

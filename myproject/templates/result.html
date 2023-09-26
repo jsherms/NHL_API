@@ -3,9 +3,27 @@
 <head>
     <title>NHL Data Retrieveal</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/schedule.css') }}">
+    <style>
+        /* Add CSS styles for the calendar here */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr); /* 7 columns for each day of the week */
+            gap: 10px; /* Adjust the gap between cells as needed */
+        }
+        .calendar-day {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>NHL Data Retrieveal</h1>
+
+    <div class="calendar-controls">
+        <button id="prevMonth">Previous Month</button>
+        <span id="currentMonthYear"></span>
+        <button id="nextMonth">Next Month</button>
+    </div>
 
     <form action="/submit" method="POST">
         <div class="dropdown-container">
@@ -38,26 +56,22 @@
             <button type="submit">Submit</button>
         </div>
     </form>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Game Number</th>
-                <th>Date</th>
-                <th>Home Team</th>
-                <th>Away Team</th>
-            </tr>
-        </thead>
-        <tbody>
+    <form action="/get_schedule" method="POST">
+        <div class="calendar">
+            <!-- Loop through each date in the schedule -->
             {% for game in schedule %}
-            <tr>
-                <td>{{ game['Game Number'] }}</td>
-                <td>{{ game['Game Date'] }}</td>
-                <td>{{ game['Home Team'] }}</td>
-                <td>{{ game['Away Team'] }}</td>
-            </tr>
+            <div class="calendar-day">
+                <h2>{{ game['Game Date'] }}</h2>
+                <ul>
+                <!-- Loop through games on this date -->
+                    Game Number: {{ game['Game Number'] }}<br>
+                    Home Team: {{ game['Home Team'] }}<br>
+                    Away Team: {{ game['Away Team'] }}
+                </ul>
+            </div>
             {% endfor %}
-        </tbody>
-    </table>
+        </div>
+    </form>
+    
 </body>
 </html>

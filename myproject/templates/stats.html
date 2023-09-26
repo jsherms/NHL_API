@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats Retrieval</title>
+</head>
+<body>
+    <div class="filter-container">
+        <form action="/stats" method="POST">
+            <h2>Stats Checklist</h2>
+
+            <div class="dropdown-wrapper">
+                <label for="teams">Teams:</label>
+                <select type="text" id="teams" name="teams">
+                    {% for team in teams %}
+                    <option value="{{ team }}" {% if team == default_team %}selected{% endif %}>{{ team }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- Filter options -->
+            <label>
+                <input type="checkbox" name="filter[]" value="name"> Name
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="games"> Games
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="goals"> Goals
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="assists"> Assists
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="points"> Points
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="shots"> Shots
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="hits"> hits
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="PPG"> PPG
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="PPP"> PPP
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="PIM"> PIM
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="faceoffPercentage"> FO %
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="shotPecentage"> Shot %
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="GWG"> GWG
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="OTG"> OT Goals
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="shorthandedGoals"> Shorthanded Goals
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="shorthandedPoints"> Shorthanded Points
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="blockedShots"> blockedShots
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="plusMinus"> +/-
+            </label>
+
+            <label>
+                <input type="checkbox" name="filter[]" value="shifts"> shifts
+            </label>
+            <!-- Submit button -->
+            <button type="submit">Apply Filters</button>
+        </form>
+    </div>
+
+    <div class="stats-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Player ID</th>
+                    <th>Name</th>
+                    <th>Games</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>Points</th>
+                    <th>Shots</th>
+                    <th>Hits</th>
+                    <th>PPG</th>
+                    <th>PPP</th>
+                    <th>PIM</th>
+                    <th>FO%</th>
+                    <th>Shot%</th>
+                    <th>GWG</th>
+                    <th>OT Goals</th>
+                    <th>SH Goals</th>
+                    <th>SH Points</th>
+                    <th>Blocks</th>
+                    <th>+/-</th>
+                    <th>Shifts</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in stats %}
+                <tr>
+                    <td>{{ player['Player ID'] }}</td>
+                    <td>{{ player['Name'] }}</td>
+                    <td>{{ player['Games'] }}</td>
+                    <td>{{ player['Goals'] }}</td>
+                    <td>{{ player['Assists'] }}</td>
+                    <td>{{ player['Points'] }}</td>
+                    <td>{{ player['Shots'] }}</td>
+                    <td>{{ player['Hits'] }}</td>
+                    <td>{{ player['PPG'] }}</td>
+                    <td>{{ player['PPP'] }}</td>
+                    <td>{{ player['PIM'] }}</td>
+                    <td>{{ player['FO%'] }}</td>
+                    <td>{{ player['Shot%'] }}</td>
+                    <td>{{ player['GWG'] }}</td>
+                    <td>{{ player['OT Goals'] }}</td>
+                    <td>{{ player['SH Goals'] }}</td>
+                    <td>{{ player['SH Points'] }}</td>
+                    <td>{{ player['Blocks'] }}</td>
+                    <td>{{ player['+/-'] }}</td>
+                    <td>{{ player['Shifts'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
