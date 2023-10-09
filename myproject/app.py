@@ -93,6 +93,7 @@ def stats():
     if request.method == 'GET':
         return render_template('stats.html', teams=teams)
     else:
+        
         team = request.form.get('teams')
         conn = sqlite3.connect('hockey_data.sqlite3')
         cursor = conn.cursor()
@@ -104,7 +105,10 @@ def stats():
         data = cursor.fetchall()
         # Need to make list of player dictionaries
         print(data[0])
-        return render_template('stats.html', teams=teams)
+       
+
+        # Render the template with the filtered stats data
+        return render_template('stats.html', teams=teams, stats=data)
 
 @app.route('/get_schedule', methods=['POST'])
 def get_schedule():

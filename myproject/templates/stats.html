@@ -21,79 +21,79 @@
             </div>
             <!-- Filter options -->
             <label>
-                <input type="checkbox" name="filter[]" value="name"> Name
+                <input type="checkbox" name="filter[]" value="name" checked> Name
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="games"> Games
+                <input type="checkbox" name="filter[]" value="games" checked> Games
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="goals"> Goals
+                <input type="checkbox" name="filter[]" value="goals" checked> Goals
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="assists"> Assists
+                <input type="checkbox" name="filter[]" value="assists" checked> Assists
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="points"> Points
+                <input type="checkbox" name="filter[]" value="points" checked> Points
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="shots"> Shots
+                <input type="checkbox" name="filter[]" value="shots" checked> Shots
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="hits"> hits
+                <input type="checkbox" name="filter[]" value="hits" checked> hits
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="PPG"> PPG
+                <input type="checkbox" name="filter[]" value="PPG" checked> PPG
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="PPP"> PPP
+                <input type="checkbox" name="filter[]" value="PPP" checked> PPP
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="PIM"> PIM
+                <input type="checkbox" name="filter[]" value="PIM" checked> PIM
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="faceoffPercentage"> FO %
+                <input type="checkbox" name="filter[]" value="faceoffPercentage" checked> FO %
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="shotPecentage"> Shot %
+                <input type="checkbox" name="filter[]" value="shotPecentage" checked> Shot %
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="GWG"> GWG
+                <input type="checkbox" name="filter[]" value="GWG" checked> GWG
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="OTG"> OT Goals
+                <input type="checkbox" name="filter[]" value="OTG" checked> OT Goals
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="shorthandedGoals"> Shorthanded Goals
+                <input type="checkbox" name="filter[]" value="shorthandedGoals" checked> Shorthanded Goals
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="shorthandedPoints"> Shorthanded Points
+                <input type="checkbox" name="filter[]" value="shorthandedPoints" checked> Shorthanded Points
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="blockedShots"> blockedShots
+                <input type="checkbox" name="filter[]" value="blockedShots" checked> blockedShots
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="plusMinus"> +/-
+                <input type="checkbox" name="filter[]" value="plusMinus" checked> +/-
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="shifts"> shifts
+                <input type="checkbox" name="filter[]" value="shifts" checked> shifts
             </label>
             <!-- Submit button -->
             <button type="submit">Apply Filters</button>
@@ -106,6 +106,7 @@
                 <tr>
                     <th>Player ID</th>
                     <th>Name</th>
+                    <th>Time on ice</th>
                     <th>Games</th>
                     <th>Goals</th>
                     <th>Assists</th>
@@ -130,26 +131,28 @@
             <tbody>
                 {% for player in stats %}
                 <tr>
-                    <td>{{ player['Player ID'] }}</td>
-                    <td>{{ player['Name'] }}</td>
-                    <td>{{ player['Games'] }}</td>
-                    <td>{{ player['Goals'] }}</td>
-                    <td>{{ player['Assists'] }}</td>
-                    <td>{{ player['Points'] }}</td>
-                    <td>{{ player['Shots'] }}</td>
-                    <td>{{ player['Hits'] }}</td>
-                    <td>{{ player['PPG'] }}</td>
-                    <td>{{ player['PPP'] }}</td>
-                    <td>{{ player['PIM'] }}</td>
-                    <td>{{ player['FO%'] }}</td>
-                    <td>{{ player['Shot%'] }}</td>
-                    <td>{{ player['GWG'] }}</td>
-                    <td>{{ player['OT Goals'] }}</td>
-                    <td>{{ player['SH Goals'] }}</td>
-                    <td>{{ player['SH Points'] }}</td>
-                    <td>{{ player['Blocks'] }}</td>
-                    <td>{{ player['+/-'] }}</td>
-                    <td>{{ player['Shifts'] }}</td>
+                    <td>{{ player[0] }}</td>
+                    <td>{{ player[1] }}</td>
+                    <td>{{ player[2] }}</td>
+                    <td>{{ player[3] }}</td>
+                    <td>{{ player[4] }}</td>
+                    <td>{{ player[5] }}</td>
+                    <td>{{ player[6] }}</td>
+                    <td>{{ player[7] }}</td>
+                    <td>{{ player[8] }}</td>
+                    <td>{{ player[9] }}</td>
+                    <td>{{ player[10] }}</td>
+                    <td>{{ player[11] }}</td>
+                    <td>{{ player[12] }}</td>
+                    <td>{{ player[13] }}</td>
+                    <td>{{ player[14] }}</td>
+                    <td>{{ player[15] }}</td>
+                    <td>{{ player[16] }}</td>
+                    <td>{{ player[17] }}</td>
+                    <td>{{ player[18] }}</td>
+                    <td>{{ player[19] }}</td>
+                    <td>{{ player[20] }}</td>
+                    <td>{{ player[21] }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
