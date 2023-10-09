@@ -27,7 +27,9 @@
             <label>
                 <input type="checkbox" name="filter[]" value="games" checked> Games
             </label>
-
+            <label>
+                <input type="checkbox" name="filter[]" value="time_on_ice" checked> TOI
+            </label>
             <label>
                 <input type="checkbox" name="filter[]" value="goals" checked> Goals
             </label>
@@ -49,47 +51,47 @@
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="PPG" checked> PPG
+                <input type="checkbox" name="filter[]" value="power_play_goals" checked> PPG
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="PPP" checked> PPP
+                <input type="checkbox" name="filter[]" value="power_play_points" checked> PPP
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="PIM" checked> PIM
+                <input type="checkbox" name="filter[]" value="penalty_minutes" checked> PIM
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="faceoffPercentage" checked> FO %
+                <input type="checkbox" name="filter[]" value="faceoff_pct" checked> FO %
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="shotPecentage" checked> Shot %
+                <input type="checkbox" name="filter[]" value="shot_pct" checked> Shot %
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="GWG" checked> GWG
+                <input type="checkbox" name="filter[]" value="game_winning_goals" checked> GWG
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="OTG" checked> OT Goals
+                <input type="checkbox" name="filter[]" value="overtime_goals" checked> OT Goals
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="shorthandedGoals" checked> Shorthanded Goals
+                <input type="checkbox" name="filter[]" value="short_handed_goals" checked> Shorthanded Goals
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="shorthandedPoints" checked> Shorthanded Points
+                <input type="checkbox" name="filter[]" value="short_handed_points" checked> Shorthanded Points
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="blockedShots" checked> blockedShots
+                <input type="checkbox" name="filter[]" value="blocked" checked> blockedShots
             </label>
 
             <label>
-                <input type="checkbox" name="filter[]" value="plusMinus" checked> +/-
+                <input type="checkbox" name="filter[]" value="plus_minus" checked> +/-
             </label>
 
             <label>
@@ -104,28 +106,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>Player ID</th>
-                    <th>Name</th>
-                    <th>Time on ice</th>
-                    <th>Games</th>
-                    <th>Goals</th>
-                    <th>Assists</th>
-                    <th>Points</th>
-                    <th>Shots</th>
-                    <th>Hits</th>
-                    <th>PPG</th>
-                    <th>PPP</th>
-                    <th>PIM</th>
-                    <th>FO%</th>
-                    <th>Shot%</th>
-                    <th>GWG</th>
-                    <th>OT Goals</th>
-                    <th>SH Goals</th>
-                    <th>SH Points</th>
-                    <th>Blocks</th>
-                    <th>+/-</th>
-                    <th>Shifts</th>
-
+                    {% for column in columns %}
+                    <th> {{ column }}</th>
+                    {% endfor %}
                 </tr>
             </thead>
             <tbody>

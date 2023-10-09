@@ -100,15 +100,16 @@ def stats():
 
         cursor.execute("SELECT id FROM nhl_team WHERE name = ?", (team,))
         team_id = cursor.fetchone()
+        selected_filters = request.form.getlist('filter[]')
 
-        cursor.execute("SELECT skater_stats.* FROM skater_stats JOIN player ON skater_stats.player_id = player.id WHERE player.team_id = ?", (team_id[0],))
+        cursor.execute("SELECT name, {} FROM skater_stats JOIN player ON skater_stats.player_id = player.id WHERE player.team_id = ?".format(", ".join(selected_filters)), (team_id[0],))
         data = cursor.fetchall()
         # Need to make list of player dictionaries
-        print(data[0])
+        print(data)
        
 
         # Render the template with the filtered stats data
-        return render_template('stats.html', teams=teams, stats=data)
+        return render_template('stats.html', teams=teams, stats=data, default_team=team, columns=selected_filters)
 
 @app.route('/get_schedule', methods=['POST'])
 def get_schedule():
