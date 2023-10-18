@@ -1,9 +1,7 @@
-/* Apply some basic styles to the table */
+/* Style the table */
 table {
     width: 100%;
     border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    margin-bottom: 20px;
 }
 
 /* Style the table header */
@@ -28,43 +26,24 @@ tbody tr:hover {
     background-color: #cce5ff;
 }
 
-/* Define column widths */
-th:nth-child(1),
-td:nth-child(1) {
-    width: 40%;
+/* Style the container for the filters */
+.filter-container {
+    margin-bottom: 20px;
 }
 
-th:nth-child(2),
-td:nth-child(2) {
-    width: 30%;
-}
-
-th:nth-child(3),
-td:nth-child(3) {
-    width: 30%;
-}
-
-/* Style the container for the dropdowns */
-.dropdown-container {
-    display: flex;
-    gap: 10px; /* Adjust the gap between dropdowns as needed */
-}
-
-/* Style each dropdown wrapper */
-.dropdown-wrapper {
-    flex: 10; /* Distribute available space equally among the dropdowns */
+/* Style each filter */
+.filter {
+    display: inline-block;
+    margin-right: 10px;
 }
 
 /* Style the label */
-label {
-    display: block;
-    margin-bottom: 6px;
+.filter label {
     font-weight: bold;
 }
 
 /* Style the select element */
-select {
-    width: 100%;
+.filter select {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -73,14 +52,8 @@ select {
     transition: border-color 0.3s ease;
 }
 
-/* Style the selected option */
-select option[selected] {
-    background-color: #007BFF;
-    color: white;
-}
-
 /* Style the button */
-button {
+.filter button {
     padding: 10px 20px;
     background-color: #007BFF;
     color: white;
@@ -92,6 +65,6 @@ button {
 }
 
 /* Change button color on hover */
-button:hover {
+.filter button:hover {
     background-color: #0056b3;
 }

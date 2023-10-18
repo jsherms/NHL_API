@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
 import requests
-from datetime import date, timedelta
+from datetime import date
+import calendar
 app = Flask(__name__)
 
 conn = sqlite3.connect('hockey_data.sqlite3')
@@ -51,28 +52,9 @@ def submit():
         team_id = cursor.fetchone()
     # Connect to the hockey_data database
         if selected_type == 'Schedule':
-            api_endpoint = 'https://statsapi.web.nhl.com/api/v1/schedule?teamId=' + str(team_id[0]) + '&startDate=2023-10-10&endDate=2024-04-18'
-            response = requests.get(api_endpoint)
-            schedule = []
-            if response.status_code == 200:
-                data = response.json()
-                for game_number in range(82):                
-                    game_info = {
-                        'Game Number': game_number + 1,
-                        'Game Date': data['dates'][game_number]['date'],
-                        'Home Team': data['dates'][game_number]['games'][0]['teams']['home']['team']['name'],
-                        'Away Team': data['dates'][game_number]['games'][0]['teams']['away']['team']['name']
-                    }
-                    if selected_filter == 'Home Only':
-                        if game_info['Home Team'] != selected_team:
-                            continue
-                    elif selected_filter == 'Away Only':
-                        if game_info['Away Team'] != selected_team:
-                            continue
-                    schedule.append(game_info)
-                return render_template('result.html',  schedule=schedule, teams=teams, types=types, filters=filters, default_team=selected_team, default_type=selected_type, default_filter=selected_filter)
-            else:
-                print("Request failed with status code:", response.status_code)
+            schedule = get_schedule(team_id[0])
+            return render_template('result.html',  schedule=schedule, teams=teams, types=types, filters=filters, default_team=selected_team, default_type=selected_type, default_filter=selected_filter)
+            
         else:
             cursor.execute('SELECT * FROM player WHERE team_id = ?', (team_id[0],))
             data = cursor.fetchall()
@@ -102,35 +84,31 @@ def stats():
         team_id = cursor.fetchone()
         selected_filters = request.form.getlist('filter[]')
 
-        cursor.execute("SELECT name, {} FROM skater_stats JOIN player ON skater_stats.player_id = player.id WHERE player.team_id = ?".format(", ".join(selected_filters)), (team_id[0],))
+        cursor.execute("SELECT {} FROM skater_stats JOIN player ON skater_stats.player_id = player.id WHERE player.team_id = ? ORDER BY points DESC".format(", ".join(selected_filters)), (team_id[0],))
         data = cursor.fetchall()
         # Need to make list of player dictionaries
-        print(data)
        
 
         # Render the template with the filtered stats data
         return render_template('stats.html', teams=teams, stats=data, default_team=team, columns=selected_filters)
 
 @app.route('/get_schedule', methods=['POST'])
-def get_schedule():
-    month = request.form.get('selected_month')
+def get_schedule(team):
     today = date.today()
     start_date = date(today.year, today.month, 1)
-    end_date = date(today.year, today.month, today.day)
+    end_date = date(today.year, today.month, calendar.monthrange(today.year, today.month)[1])
 
     # Format the start and end dates as strings
     start_date_str = start_date.strftime('%Y-%m-%d')
     end_date_str = end_date.strftime('%Y-%m-%d')
 
-    team_id = 17
-    api_endpoint = f'https://statsapi.web.nhl.com/api/v1/schedule?teamId={team_id}&startDate={start_date_str}&endDate={end_date_str}'
-
+    api_endpoint = f'https://statsapi.web.nhl.com/api/v1/schedule?teamId={str(team)}&startDate={start_date_str}&endDate={end_date_str}'
     response = requests.get(api_endpoint)
 
     if response.status_code == 200:
         data = response.json()
         schedule = []
-        for game_number in range(len(data)):                
+        for game_number in range((data['totalGames'])):                
             game_info = {
                 'Game Number': game_number + 1,
                 'Game Date': data['dates'][game_number]['date'],
@@ -138,7 +116,7 @@ def get_schedule():
                 'Away Team': data['dates'][game_number]['games'][0]['teams']['away']['team']['name']
             }
             schedule.append(game_info)
-        return render_template('result.html',  schedule=schedule, teams=teams, types=types, filters=filters)
+        return schedule
         # Now, you can work with the schedule_data to access the game schedule for the current month.
         
     else:

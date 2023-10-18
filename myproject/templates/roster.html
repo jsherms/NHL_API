@@ -2,7 +2,79 @@
 <html>
 <head>
     <title>NHL Data Retrieveal</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/roster.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/roster.css') }}"> -->
+    <style>
+        /* Style the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Style the table header */
+        thead {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Style alternating rows */
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Hover effect on rows */
+        tbody tr:hover {
+            background-color: #cce5ff;
+        }
+
+        /* Style the container for the filters */
+        .dropdown-container {
+            margin-bottom: 20px;
+        }
+
+        /* Style each filter */
+        .dropdown-wrapper {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Style the label */
+        .dropdown-wrapper label {
+            font-weight: bold;
+        }
+
+        /* Style the select element */
+        .dropdown-wrapper select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Style the button */
+        .dropdown-container button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Change button color on hover */
+        .dropdown-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>NHL Data Retrieveal</h1>
