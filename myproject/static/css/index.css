@@ -1,8 +1,10 @@
 .header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin: 0 300px
+    justify-content: center;
+}
+.header-container h1 {
+    margin-right: 20px;
 }
 
 /* Style the container for the dropdowns */
@@ -55,4 +57,13 @@ button {
 /* Change button color on hover */
 button:hover {
     background-color: #0056b3;
+}
+
+a {
+    color: blue;
+    text-decoration: underline;
+}
+  
+a:hover {
+    color: darkblue;
 }

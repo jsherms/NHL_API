@@ -5,83 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stats Retrieval</title>
-    <style>
-        /* Style the table */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        /* Style the table header */
-        thead {
-            background-color: #007BFF;
-            color: white;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        /* Style alternating rows */
-        tbody tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        /* Hover effect on rows */
-        tbody tr:hover {
-            background-color: #cce5ff;
-        }
-
-        /* Style the container for the filters */
-        .filter-container {
-            margin-bottom: 20px;
-        }
-
-        /* Style each filter */
-        .dropdown-wrapper {
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        /* Style the label */
-        .dropdown-wrapper label {
-            font-weight: bold;
-        }
-
-        /* Style the select element */
-        .dropdown-wrapper select {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #fff;
-            transition: border-color 0.3s ease;
-        }
-
-        /* Style the button */
-        .dropdown-container button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Change button color on hover */
-        .dropdown-container button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stats.css') }}">
 </head>
 <body>
     <div class="filter-container">
         <form action="/stats" method="POST">
-            <h2>Stats Checklist</h2>
+            <div class="header-container">
+                <a href="/submit" class="submit"><h1>NHL Schedule Retrieval</h1></a>
+                <a href="/stats" class="submit"><h1>NHL Statistics Retrieval</h1></a>
+            </div>
 
             <div class="dropdown-wrapper">
                 <label for="teams">Teams:</label>
@@ -91,86 +23,102 @@
                     {% endfor %}
                 </select>
             </div>
+            <button type="submit" onclick="applyFilters()">Apply Filters</button>
+            <script>
+                function applyFilters() {
+                    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                    checkboxes.forEach(function(checkbox) {
+                        if (checkbox.checked) {
+                            checkbox.setAttribute('checked', 'checked');
+                        } else {
+                            checkbox.removeAttribute('checked');
+                        }
+                    });
+                    document.getElementById('filter-container').submit();
+                }
+            </script>
             <!-- Filter options -->
-            <label>
-                <input type="checkbox" name="filter[]" value="player.name" checked> Name
-            </label>
+            <div class="filters">
+                <label>
+                    <input type="checkbox" name="filter[]" value="player.name" checked> Name
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="games" checked> Games
-            </label>
-            <label>
-                <input type="checkbox" name="filter[]" value="time_on_ice" checked> TOI
-            </label>
-            <label>
-                <input type="checkbox" name="filter[]" value="goals" checked> Goals
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="games" checked> Games
+                </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="time_on_ice" checked> TOI
+                </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="goals" checked> Goals
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="assists" checked> Assists
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="assists" checked> Assists
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="points" checked> Points
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="points" checked> Points
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="shots" checked> Shots
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="shots" checked> Shots
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="hits" checked> hits
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="hits" checked> hits
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="power_play_goals" checked> PPG
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="power_play_goals" checked> PPG
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="power_play_points" checked> PPP
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="power_play_points" checked> PPP
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="penalty_minutes" checked> PIM
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="penalty_minutes" checked> PIM
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="faceoff_pct" checked> FO %
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="faceoff_pct" checked> FO %
+                </label>
+            </div>
+            <div class="filters">
+                <label>
+                    <input type="checkbox" name="filter[]" value="shot_pct" checked> Shot %
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="shot_pct" checked> Shot %
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="game_winning_goals" checked> GWG
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="game_winning_goals" checked> GWG
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="overtime_goals" checked> OT Goals
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="overtime_goals" checked> OT Goals
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="short_handed_goals" checked> Shorthanded Goals
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="short_handed_goals" checked> Shorthanded Goals
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="short_handed_points" checked> Shorthanded Points
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="short_handed_points" checked> Shorthanded Points
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="blocked" checked> blockedShots
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="blocked" checked> blockedShots
-            </label>
+                <label>
+                    <input type="checkbox" name="filter[]" value="plus_minus" checked> +/-
+                </label>
 
-            <label>
-                <input type="checkbox" name="filter[]" value="plus_minus" checked> +/-
-            </label>
-
-            <label>
-                <input type="checkbox" name="filter[]" value="shifts" checked> shifts
-            </label>
-            <!-- Submit button -->
-            <button type="submit">Apply Filters</button>
+                <label>
+                    <input type="checkbox" name="filter[]" value="shifts" checked> shifts
+                </label>
+            </div>
+                <!-- Submit button -->
         </form>
     </div>
 

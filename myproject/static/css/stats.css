@@ -32,18 +32,21 @@ tbody tr:hover {
 }
 
 /* Style each filter */
-.filter {
-    display: inline-block;
+.filters {
+    display: flex;
+    flex-wrap: wrap;
     margin-right: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Style the label */
-.filter label {
+.filters label {
     font-weight: bold;
 }
 
 /* Style the select element */
-.filter select {
+.filters select {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -53,7 +56,7 @@ tbody tr:hover {
 }
 
 /* Style the button */
-.filter button {
+.filters button {
     padding: 10px 20px;
     background-color: #007BFF;
     color: white;
@@ -65,6 +68,24 @@ tbody tr:hover {
 }
 
 /* Change button color on hover */
-.filter button:hover {
+.filters button:hover {
     background-color: #0056b3;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-container h1 {
+    margin-right: 20px;
+}
+
+a {
+    color: blue;
+    text-decoration: underline;
+}
+  
+a:hover {
+    color: darkblue;
 }

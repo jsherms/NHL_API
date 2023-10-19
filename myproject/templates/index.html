@@ -6,8 +6,8 @@
 </head>
 <body>
     <div class="header-container">
-        <h1>NHL Schedule Retrieveal</h1>
-        <a href="/stats" class="stats"><h1>NHL Statistics Retrieveal</h1></a>
+        <a href="/submit" class="submit"><h1>NHL Schedule Retrieval</h1></a>
+        <a href="/stats" class="submit"><h1>NHL Statistics Retrieval</h1></a>
     </div>
     <form action="/submit" method="POST">
         <div class="dropdown-container">
@@ -16,24 +16,6 @@
                 <select type="text" id="teams" name="teams">
                     {% for team in teams %}
                     <option value="{{ team }}" {% if team == default_team %}selected{% endif %}>{{ team }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-    
-            <div class="dropdown-wrapper">
-                <label for="type">Type:</label>
-                <select id="type" name="type">
-                    {% for type in types %}
-                    <option value="{{ type }}" {% if type == default_type %}selected{% endif %}>{{ type }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-    
-            <div class="dropdown-wrapper">
-                <label for="filter">Filter:</label>
-                <select id="filter" name="filter">
-                    {% for filter in filters %}
-                    <option value="{{ filter }}" {% if filter == default_filter %}selected{% endif %}>{{ filter }}</option>
                     {% endfor %}
                 </select>
             </div>

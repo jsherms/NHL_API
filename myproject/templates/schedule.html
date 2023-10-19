@@ -17,14 +17,22 @@
     </style>
 </head>
 <body>
-    <h1>NHL Data Retrieveal</h1>
-
-    <div class="calendar-controls">
-        <button id="prevMonth">Previous Month</button>
-        <span id="currentMonthYear"></span>
-        <button id="nextMonth">Next Month</button>
+    <div class="header-container">
+        <a href="/submit" class="submit"><h1>NHL Schedule Retrieval</h1></a>
+        <a href="/stats" class="submit"><h1>NHL Statistics Retrieval</h1></a>
     </div>
-
+  
+        <div class="calendar-controls">
+            <h1>Current Month: {{ current_month }}</h1>
+            <form method="post" action="/next">
+                <button type="submit">Next Month</button>
+            </form>
+        
+            <form method="post" action="/previous">
+                <button type="submit">Previous Month</button>
+            </form>
+            
+        </div>
     <form action="/submit" method="POST">
         <div class="dropdown-container">
             <div class="dropdown-wrapper">
@@ -35,28 +43,9 @@
                     {% endfor %}
                 </select>
             </div>
-    
-            <div class="dropdown-wrapper">
-                <label for="type">Type:</label>
-                <select id="type" name="type">
-                    {% for type in types %}
-                    <option value="{{ type }}" {% if type == default_type %}selected{% endif %}>{{ type }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-    
-            <div class="dropdown-wrapper">
-                <label for="filter">Filter:</label>
-                <select id="filter" name="filter">
-                    {% for filter in filters %}
-                    <option value="{{ filter }}" {% if filter == default_filter %}selected{% endif %}>{{ filter }}</option>
-                    {% endfor %}
-                </select>
-            </div>
             <button type="submit">Submit</button>
         </div>
-    </form>
-    <form action="/get_schedule" method="POST">
+    <!-- </form> -->
         <div class="calendar">
             <!-- Loop through each date in the schedule -->
             {% for game in schedule %}
